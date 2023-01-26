@@ -1,0 +1,34 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AzureSandbox.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AzureSandbox.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AzureSandbox">
+  <Window.Styles>
+    <StyleInclude Source="/Styles/Styles1.axaml" />
+  </Window.Styles>
+  
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+  <Grid Classes="mainContainer">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition />
+    </Grid.RowDefinitions>
+    <Menu Classes="mainMenu">
+      <MenuItem Header="_File">
+        <MenuItem Header="_Exit" Command="{Binding MenuViewModel.ExitCommand, Mode=OneWay}"/>
+      </MenuItem>
+    </Menu>
+    <StackPanel Grid.Row="1" Margin="4">
+      <TextBlock
+        Classes="h1"
+        Text="{Binding Header, Mode=OneWay, FallbackValue=Header}"/>
+    </StackPanel>
+  </Grid>
+</Window>
