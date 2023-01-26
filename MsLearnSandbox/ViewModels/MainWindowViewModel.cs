@@ -2,7 +2,7 @@
 
 public class MainWindowViewModel : ViewModelBase
 {
-    public string Header => "Sandbox for MS Learn material.";
+    public string Header => "Sandbox for MS Learn material";
 
     public MenuViewModel MenuViewModel { get; set; }
 
