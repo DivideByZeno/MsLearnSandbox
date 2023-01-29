@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MsLearnSandbox"
+             xmlns:viewModels="clr-namespace:MsLearnSandbox.ViewModels"
              x:Class="MsLearnSandbox.MainPage">
-
+    <ContentPage.BindingContext>
+        <viewModels:MainViewModel />
+    </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
@@ -32,7 +36,7 @@
                 x:Name="CounterBtn"
                 Text="Click me"
                 SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                Command="{Binding Path=IncrementCounterCommand, Mode=OneWay}"
                 HorizontalOptions="Center" />
 
         </VerticalStackLayout>
